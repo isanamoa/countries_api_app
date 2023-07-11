@@ -7,9 +7,8 @@ import CountryDetails from "./CountryDetails";
 import { darkModeContext } from "../App";
 
 const Home = () => {
-    //console.log(countryData);
     const modeContext = useContext(darkModeContext);
-    console.log(modeContext.divMode)
+
     return (
       <>
           <div className={`${modeContext.divMode ? 'hidden': 'text-[16px]'}`}>

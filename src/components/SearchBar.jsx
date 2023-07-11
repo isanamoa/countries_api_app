@@ -18,7 +18,7 @@ const SearchBar = () => {
     const submitHandle = (e) => {
         e.preventDefault();
         if(country != '') {
-            console.log(country);
+            //console.log(country);
             fetchSearchedCountryData(country);
             setCountry('');
         }else{

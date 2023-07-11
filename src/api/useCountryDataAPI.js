@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 import Data from '../utils/data.json' assert { type: 'json'};
 
@@ -28,7 +28,7 @@ const useCountryDataAPI = () => {
             }, 3000);
 
         } catch (error) {
-            console.log('Error response', error.response);
+            //console.log('Error response', error.response);
             if(error.response){
                 if(error.response.status === 404){
                 setIsNotice(prev => !prev);
@@ -65,7 +65,7 @@ const useCountryDataAPI = () => {
             setIsLoading(false);
 
         } catch (error) {
-            console.log('Error response', error.response);
+            //console.log('Error response', error.response);
             if(error.response){
                 if(error.response.status === 404){
                 setIsNotice(prev => !prev);
@@ -102,7 +102,7 @@ const useCountryDataAPI = () => {
             setIsLoading(false);
 
         } catch (error) {
-            console.log('Error response', error.response);
+            //console.log('Error response', error.response);
             if(error.response){
                 if(error.response.status === 404){
                 setIsNotice(prev => !prev);
@@ -140,7 +140,7 @@ const useCountryDataAPI = () => {
             setIsLoading(false);
 
         } catch (error) {
-            console.log('Error response', error.response);
+            //console.log('Error response', error.response);
             if(error.response){
                 if(error.response.status === 404){
                 setIsNotice(prev => !prev);

@@ -1,9 +1,9 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { MdArrowBack } from "react-icons/md";
 
 import Data from '../utils/data.json';
-import useCountryDataAPI from "../api/useCountryDataAPI";
-import Loading from "./Loading";
+//import useCountryDataAPI from "../api/useCountryDataAPI";
+//import Loading from "./Loading";
 import { darkModeContext } from "../App";
 
 const Details = () => {

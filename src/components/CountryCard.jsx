@@ -20,7 +20,7 @@ const CountryCard = ({}) => {
 
     const viewDetailHandle = (countryName) => {
         //router.push(`/countries/${countryName}`);
-        console.log(countryName)
+        //console.log(countryName)
         //modeContext.setCountry(countryName);
         modeContext.setCountryDetails(Data.filter((country) => country.name === countryName));
         modeContext.divDisplay();
