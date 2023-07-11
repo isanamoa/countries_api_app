@@ -1,26 +1,36 @@
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import React, { useState } from 'react';
+import HeaderComp from './components/HeaderComp';
+import useCountryDataAPI from "./api/useCountryDataAPI";
+import Home from './components/Home';
+
+export let darkModeContext = React.createContext();
+export let countryContext = React.createContext();
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
+  const [divMode, setDivMode] = useState(false);
+  const [country, setCountry] = useState(null);
+  const [countryDetails, setCountryDetails] = useState(null);
+  const countryDataAPI = useCountryDataAPI();
+
+  const mode =()=> {
+    setDarkMode(prev => !prev);
+  }
+  const divDisplay =()=> {
+    setDivMode(prev => !prev);
+  }
+
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card" style={{ fontSize: "28px" }}>
-        <p>Enjoy building this project</p>
-      </div>
-      <p style={{ fontSize: "24px" }} className="read-the-docs">
-        Countries API project
-      </p>
-    </>
+    <darkModeContext.Provider value={{darkMode, divMode, country, countryDetails, mode, divDisplay, setCountry, setCountryDetails}}>
+      <countryContext.Provider value={countryDataAPI}>
+        <div className={`relative  min-h-screen pt-10 font-nunitoSan ${darkMode ? 'bg-[#202C36]' : 'bg-[hsl(0, 0%, 98%)]'}`}>
+          <HeaderComp />
+          <main className="static mt-24 w-full px-5 md:px-20">
+            <Home />
+          </main>
+        </div>
+      </countryContext.Provider>
+    </darkModeContext.Provider>
   );
 }
 
